@@ -33,8 +33,7 @@ python <script_name>.py
 ```
 
 ### 1. Debate Competition Workflow (Prompt Chaining)
-
-This script demonstrates how to create a workflow where prompts use the results of running prior prompts. It creates a simple mock debate competition, where one agent generates a thesis, another one presents an affirmative argument, and a third one generates a rebuttal to it.
+The script [`1_prompt_chaining.py`](1_prompt_chaining.py) demonstrates how to create a workflow where prompts use the results of prior prompts. It run a simple mock debate competition, where one agent generates a thesis, another one presents an affirmative argument, and a third one generates a rebuttal to it.
 
 ```bash
 python 1_prompt_chaining.py
