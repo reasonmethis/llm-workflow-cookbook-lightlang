@@ -11,7 +11,7 @@ git clone https://github.com/reasonmethis/llm-workflow-cookbook-lightlang.git
 cd llm-workflow-cookbook-lightlang
 ```
 
-###2. Create a Virtual Environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv .venv
