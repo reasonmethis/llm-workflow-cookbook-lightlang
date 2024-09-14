@@ -3,9 +3,18 @@
 In this example, we create a SequentialWorkflow with three prompts, which generates a \
 random thesis for debating, provides the affirmative case for the thesis, and prepares a rebuttal."""
 
+import os
 from lightlang.llms.llm import LLM
 from lightlang.tasks.task_streaming import TaskEvent
 from lightlang.workflows.sequential_workflow import SequentialWorkflow
+
+from utils.load_env import load_environment_variables
+
+# Load the environment variables and model/provider settings
+load_environment_variables()
+PROVIDER = os.getenv("PROVIDER", "openrouter")
+MODEL = os.getenv("MODEL", "mistralai/mistral-7b-instruct:free")
+TEMPERATURE = float(os.getenv("TEMPERATURE", 0.8))
 
 # Define the first prompt
 # This prompt instructs the assistant to generate a random thesis for debating.
@@ -56,8 +65,8 @@ Affirmative Case:
 # Create the SequentialWorkflow with the string prompt templates
 workflow = SequentialWorkflow(
     tasks=[prompt1, prompt2, prompt3],
-    default_llm=LLM("openai", "gpt-4o-mini", temperature=0.9),
-    workflow_data={"topic": "philosopy of mind"}, # Structure for inputs and outputs
+    default_llm=LLM(model=MODEL, provider=PROVIDER, temperature=TEMPERATURE),
+    workflow_data={"topic": "philosopy of mind"},  # Structure for inputs and outputs
 )
 
 # Run the workflow

@@ -18,11 +18,17 @@ python -m venv .venv
 source .venv/bin/activate # On Windows, run .venv\Scripts\activate instead
 ```
 
-### 3. Install Requirements (Just `lightlang`)
+### 3. Install Requirements
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### 4. Set Up Environment Variables (Optional)
+
+NOTE: The scripts will work without setting your own API key - if you don't complete this step, a demo OpenRouter API key will be used. It has very limited funds and is not guaranteed to still work by the time you are reading this. You are strongly encouraged to complete this step and use your own API keys.
+
+Copy the `.env.example` file to `.env` and fill in the values for the API key you want to use to interact with LLMs, such as your OpenAI API key, as well as other settings.
 
 ## Usage
 
