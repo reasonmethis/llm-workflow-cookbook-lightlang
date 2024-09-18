@@ -3,20 +3,9 @@
 In this example, we create a SequentialWorkflow with three prompts, which generates a \
 random thesis for debating, provides the affirmative case for the thesis, and prepares a rebuttal."""
 
-import os
-
 from lightlang.llms.llm import LLM
+from shared.constants import PROVIDER, MODEL
 from lightlang.workflows.sequential_workflow import SequentialWorkflow
-
-from utils.load_env import load_environment_variables
-
-# Load the environment variables and model/provider settings
-load_environment_variables()
-PROVIDER = os.getenv("PROVIDER", "openrouter")
-MODEL = os.getenv("MODEL", "mistralai/mistral-7b-instruct:free")
-TEMPERATURE = float(os.getenv("TEMPERATURE", 0.8))
-
-print(f"Using:\n- Model: {MODEL}\n- Provider: {PROVIDER}\n- Temperature: {TEMPERATURE}")
 
 # Define the input data for the workflow
 workflow_data = {"topic": "philosopy of mind"}  # Each task will add its output to this
@@ -63,8 +52,9 @@ Affirmative Case:
 {task_2_output}
 </user>
 """
-# Create the LLM instance
-llm = LLM(model=MODEL, provider=PROVIDER, temperature=TEMPERATURE)
+
+# Initialize LLM with the model specified in .env (or default) and set the temperature
+llm = LLM(provider=PROVIDER, model=MODEL, temperature=0.8)
 
 # Create the SequentialWorkflow with the string prompt templates
 workflow = SequentialWorkflow(
@@ -76,4 +66,4 @@ for chunk in workflow.stream():
     if chunk.event_type != "DEFAULT":
         print(f"\n--- Task {workflow.task_id}: event '{chunk.event_type}' ---\n")
     elif chunk.content is not None:
-        print(chunk.content, end="")
+        print(chunk.content, end="", flush=True)

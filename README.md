@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ### 4. Set Up Environment Variables (Optional)
 
-NOTE: The scripts will work without setting your own API key - if you don't complete this step, a demo OpenRouter API key will be used. It has very limited funds and is not guaranteed to still work by the time you are reading this. You are strongly encouraged to complete this step and use your own API keys.
+NOTE: The scripts will (likely) work without setting your own API key - if you don't complete this step, a demo OpenRouter API key will be used. It's set up with a tiny amount of credits, and may potentially have run out of them by the time you are reading this. You are strongly encouraged to complete this step and use your own API keys.
 
 Copy the `.env.example` file to `.env` and fill in the values for the API key you want to use to interact with LLMs, such as your OpenAI API key, as well as other settings.
 
@@ -38,11 +38,12 @@ Each script in the root directory is a self-contained example of how to use Ligh
 python <script_name>.py
 ```
 
-### 1. Debate Competition Workflow (Prompt Chaining)
-The script [`1_prompt_chaining.py`](1_prompt_chaining.py) demonstrates how to create a workflow where prompts use the results of prior prompts. It runs a simple mock debate competition, where one agent generates a thesis, another one presents an affirmative argument, and a third one generates a rebuttal to it.
+### Debate Competition Workflow (Prompt Chaining)
+
+As an illustration, currently the most advanced example is the script [`3_prompt_chaining.py`](3_prompt_chaining.py), which demonstrates how to create a workflow where prompts use the results of prior prompts. It runs a simple mock debate competition, where one agent generates a thesis, another one presents an affirmative argument, and a third one generates a rebuttal to it.
 
 ```bash
-python 1_prompt_chaining.py
+python 3_prompt_chaining.py
 ```
 
 ## Contributing
