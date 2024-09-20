@@ -58,7 +58,7 @@ workflow = SequentialWorkflow(
 
 # Run the workflow
 for chunk in workflow.stream():
-    if chunk.is_task_event():
+    if chunk.is_event():
         print("\n" + f" Task {workflow.task_id}: event {chunk.event_type} ".center(80, "=") + "\n")
     elif chunk.content is not None:
         print(chunk.content, end="", flush=True)
