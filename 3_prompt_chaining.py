@@ -4,8 +4,9 @@ In this example, we create a SequentialWorkflow with three prompts, which genera
 random thesis for debating, provides the affirmative case for the thesis, and prepares a rebuttal."""
 
 from lightlang.llms.llm import LLM
-from shared.constants import PROVIDER, MODEL
 from lightlang.workflows.sequential_workflow import SequentialWorkflow
+
+from shared.constants import MODEL, PROVIDER
 
 # Define the input data for the workflow
 workflow_data = {"topic": "philosopy of mind"}  # Each task will add its output to this
@@ -57,7 +58,7 @@ workflow = SequentialWorkflow(
 
 # Run the workflow
 for chunk in workflow.stream():
-    if chunk.event_type != "DEFAULT":
-        print(f"\n--- Task {workflow.task_id}: event '{chunk.event_type}' ---\n")
+    if chunk.is_task_event():
+        print("\n" + f" Task {workflow.task_id}: event {chunk.event_type} ".center(80, "=") + "\n")
     elif chunk.content is not None:
         print(chunk.content, end="", flush=True)

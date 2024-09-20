@@ -1,4 +1,5 @@
 from lightlang.llms.llm import LLM
+from lightlang.types import ChatMessage
 
 from shared.constants import MODEL, PROVIDER
 
@@ -7,7 +8,7 @@ llm = LLM(provider=PROVIDER, model=MODEL, temperature=0.8)
 print(f"Using model '{MODEL}' and provider '{PROVIDER}'\n")
 
 # System message, followed by a user prompt
-messages = [
+messages: list[ChatMessage] = [
     {"role": "system", "content": "You are an expert at writing very funny stories."},
     {"role": "user", "content": "Start a story about a coding duck, just one sentence."},
 ]
