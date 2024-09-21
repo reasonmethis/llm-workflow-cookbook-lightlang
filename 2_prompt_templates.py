@@ -3,7 +3,7 @@ import random
 from lightlang.llms.llm import LLM
 from lightlang.prompts.prompt_template import PromptTemplate
 
-from shared.constants import MODEL, PROVIDER
+from shared.settings import MODEL, PROVIDER
 
 # Define the model config. Possible parameters are described in the API documentation:
 #     - for OpenAI: https://platform.openai.com/docs/api-reference/chat/create)

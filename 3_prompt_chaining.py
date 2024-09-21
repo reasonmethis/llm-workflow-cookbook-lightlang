@@ -6,7 +6,7 @@ random thesis for debating, provides the affirmative case for the thesis, and pr
 from lightlang.llms.llm import LLM
 from lightlang.workflows.sequential_workflow import SequentialWorkflow
 
-from shared.constants import MODEL, PROVIDER
+from shared.settings import MODEL, PROVIDER
 
 # Define the input data for the workflow
 workflow_data = {"topic": "philosopy of mind"}  # Each task will add its output to this

@@ -1,7 +1,7 @@
 from lightlang.llms.llm import LLM
 from lightlang.types import ChatMessage
 
-from shared.constants import MODEL, PROVIDER
+from shared.settings import MODEL, PROVIDER
 
 # Initialize LLM with the model specified in .env (or default) and set the temperature
 llm = LLM(provider=PROVIDER, model=MODEL, temperature=0.8)
