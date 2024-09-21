@@ -1,3 +1,4 @@
+# Langchain-based version of the corresponding LightLang example for comparison.
 # References:
 #    - https://python.langchain.com/docs/tutorials/llm_chain/#using-language-models - NO OPENROUTER
 #    - https://openrouter.ai/docs/frameworks#using-langchain - DOESN'T QUITE WORK AS IS

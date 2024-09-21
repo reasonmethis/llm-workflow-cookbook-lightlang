@@ -9,8 +9,8 @@ print(f"Using model '{MODEL}' and provider '{PROVIDER}'\n")
 
 # System message, followed by a user prompt
 messages: list[ChatMessage] = [
-    {"role": "system", "content": "You are an expert at writing very funny stories."},
-    {"role": "user", "content": "Start a story about a coding duck, just one sentence."},
+    dict(role="system", content="You are an expert at writing very funny stories."),
+    dict(role="user", content="Start a story about a coding duck, just one sentence."),
 ]
 
 # Stream the response
@@ -20,8 +20,8 @@ for chunk in llm.stream(messages):
 
 # Add the response and a new user message to the chat history
 messages += [
-    {"role": "assistant", "content": llm.stream_content},
-    {"role": "user", "content": "Continue with the next sentence."},
+    dict(role="assistant", content=llm.stream_content),
+    dict(role="user", content="Continue with the next sentence."),
 ]
 
 # Get a new response (we could also stream it here)
